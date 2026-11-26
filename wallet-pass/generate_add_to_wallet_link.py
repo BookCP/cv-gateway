@@ -19,11 +19,8 @@ def localized(value: str, language: str) -> dict:
     return {"defaultValue": {"language": language, "value": value}}
 
 
-def image(uri: str, description: str, language: str) -> dict:
-    return {
-        "sourceUri": {"uri": uri},
-        "contentDescription": localized(description, language),
-    }
+def image(uri: str) -> dict:
+    return {"sourceUri": {"uri": uri}}
 
 
 def main() -> int:
@@ -50,29 +47,19 @@ def main() -> int:
         "classId": class_id,
         "state": "ACTIVE",
         "cardTitle": localized(design["cardTitle"], lang),
-        "header": localized(design["header"], lang),
-        "subheader": localized(design["subheader"], lang),
+        "header": localized(design["subheader"], lang),
         "hexBackgroundColor": design["backgroundColor"],
-        "logo": image(design["logoUrl"], "A monogram", lang),
-        "heroImage": image(design["heroImageUrl"], "Andrei Parnia profile portrait", lang),
+        "logo": image(design["logoUrl"]),
+        "heroImage": image(design["heroImageUrl"]),
         "barcode": {
             "type": "QR_CODE",
             "value": design["portfolioUrl"],
-            "alternateText": "Portfolio",
         },
         "textModulesData": [
             {"id": "row2left", "header": "Email", "body": design["email"]},
             {"id": "row2right", "header": "Phone", "body": design["phone"]},
             {"id": "row3left", "header": "Based in", "body": design["location"]},
         ],
-        "linksModuleData": {
-            "uris": [
-                {"id": "portfolio", "uri": design["portfolioUrl"], "description": "Portfolio"},
-                {"id": "linkedin", "uri": design["linkedinUrl"], "description": "LinkedIn"},
-                {"id": "email", "uri": f"mailto:{design['email']}", "description": "Email"},
-                {"id": "phone", "uri": design["phoneUri"], "description": "Phone"},
-            ]
-        },
     }
     claims = {
         "iss": "",

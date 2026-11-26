@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ee">
+  <meta name="description" content="CV, recommendations, credentials, and selected work by Andrei Cosmin Parnia.">
+  <title>Andrei Cosmin Parnia — CV & selected work</title>
+  <!-- Design guidance adapted from unslop by Damir Sokolovsky, CC BY 4.0: https://github.com/heydamir/unslop -->
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f4ee;
+      --ink: #1f1b16;
+      --muted: #6d655b;
+      --line: #ded8cc;
+      --green: #315b48;
+      --green-dark: #244737;
+      --card: #fdfbf7;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --paper: #161513;
+      --ink: #efe9de;
+      --muted: #aaa398;
+      --line: #34312c;
+      --green: #a9c7b2;
+      --green-dark: #203a2d;
+      --card: #1c1a18;
+    }
+    :root[data-theme="light"] { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .page {
+      width: min(100% - 48px, 960px);
+      min-height: 100vh;
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+    .wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .mark {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--green);
+      border-radius: 50%;
+      color: var(--green);
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+    .header-actions { display: flex; align-items: center; }
+    .theme-toggle {
+      position: relative;
+      width: 68px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      padding: 3px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #e9e3d9;
+      color: var(--ink);
+      cursor: pointer;
+    }
+    :root[data-theme="dark"] .theme-toggle { background: #3a3834; }
+    .theme-toggle::before {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #fdfbf7;
+      box-shadow: 0 1px 2px rgb(31 27 22 / 16%);
+      content: "";
+      transition: transform .16s ease;
+    }
+    :root[data-theme="dark"] .theme-toggle::before { transform: translateX(32px); }
+    .theme-toggle:hover { border-color: var(--green); }
+    .theme-toggle svg { position: absolute; z-index: 1; top: 9px; left: 9px; width: 16px; height: 16px; margin: 0; }
+    :root[data-theme="dark"] .theme-toggle svg { left: 41px; }
+    main { flex: 1; }
+    .intro {
+      max-width: 720px;
+      padding: clamp(48px, 6vw, 80px) 0 32px;
+    }
+    .eyebrow {
+      margin: 0 0 20px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .01em;
+    }
+    h1 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(44px, 7vw, 72px);
+      font-weight: 400;
+      letter-spacing: -.03em;
+      line-height: 1.04;
+    }
+    .lede {
+      max-width: 570px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(16px, 2.2vw, 19px);
+      line-height: 1.6;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: -.02em;
+    }
+    .resources {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin-bottom: 40px;
+      border-top: 1px solid var(--line);
+    }
+    .resource {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 8px;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      background: transparent;
+      text-decoration: none;
+      transition: background-color .16s ease;
+    }
+    .resource:hover {
+      background: color-mix(in srgb, var(--card) 70%, transparent);
+    }
+    .icon-box {
+      width: 40px;
+      height: 40px;
+      flex: 0 0 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 4px;
+      background: transparent;
+      color: var(--green);
+    }
+    .icon-box svg { width: 21px; height: 21px; }
+    .icon-box .document-logo { width: 34px; height: 34px; max-height: 34px; object-fit: contain; }
+    :root[data-theme="dark"] .icon-box.brand-contrast {
+      border-radius: 4px;
+      background: #fdfbf7;
+    }
+    .cv-mark {
+      width: 31px;
+      height: 31px;
+      display: grid;
+      place-items: center;
+      border: 1px solid currentColor;
+      border-radius: 4px;
+      font-family: var(--serif);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0;
+      padding-right: 1px;
+    }
+    .linkedin-mark { width: 23px; height: 23px; fill: #0a66c2; }
+    .resource-copy { min-width: 0; flex: 1; }
+    .resource-title {
+      display: block;
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .resource-desc {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .arrow { width: 16px; height: 16px; color: var(--muted); flex: 0 0 auto; }
+    .work {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 24px;
+      border-radius: 12px;
+      background: #244737;
+      color: #fffefa;
+    }
+    .work-label {
+      margin: 0 0 8px;
+      color: #e1e9e2;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .01em;
+    }
+    .work h2 { font-family: var(--sans); font-size: 20px; font-weight: 500; }
+    .work p:last-child { margin: 8px 0 0; color: #e1e9e2; font-size: 14px; }
+    .work-link {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 16px;
+      border-radius: 8px;
+      background: #fffefa;
+      color: #203a2d;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color .16s ease;
+    }
+    .work-link:hover { background: #e8eee6; }
+    .work-link svg { width: 16px; height: 16px; }
+    .claere-mark { width: 32px; height: 32px; object-fit: contain; vertical-align: middle; }
+    footer {
+      display: flex;
+      justify-content: flex-start;
+      gap: 14px;
+      margin-top: 32px;
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+    footer a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+    .focusable:focus-visible { outline: 3px solid #88a893; outline-offset: 4px; }
+    body.pdf-open { overflow: hidden; }
+    .pdf-viewer {
+      position: fixed;
+      z-index: 10;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      background: var(--paper);
+      color: var(--ink);
+      transform: translateX(100%);
+      visibility: hidden;
+      pointer-events: none;
+      transition: transform .7s cubic-bezier(.22, 1, .36, 1), visibility 0s linear .7s;
+    }
+    .pdf-viewer.is-active {
+      transform: translateX(0);
+      visibility: visible;
+      pointer-events: auto;
+      transition: transform .7s cubic-bezier(.22, 1, .36, 1), visibility 0s;
+    }
+    .pdf-toolbar {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 16px;
+      padding: 0 max(24px, calc((100vw - 960px) / 2));
+      border-bottom: 1px solid var(--line);
+    }
+    .pdf-back {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      flex: 0 0 40px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--card);
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .pdf-back:hover { border-color: var(--green); }
+    .pdf-back svg { width: 18px; height: 18px; }
+    .pdf-title { font-size: 16px; font-weight: 500; }
+    .pdf-frame { width: 100%; min-height: 0; flex: 1; border: 0; background: var(--paper); }
+    @media (max-width: 620px) {
+      .page { width: min(100% - 36px, 480px); }
+      header { min-height: 64px; }
+      .intro { padding: 56px 0 40px; }
+      .resources { margin-bottom: 40px; }
+      .resource { min-height: 72px; padding: 16px 4px; }
+      .work { align-items: flex-start; flex-direction: column; padding: 24px; }
+      .work-link { width: 100%; }
+      footer { align-items: flex-start; flex-direction: column; margin-top: 40px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="wordmark" aria-label="Andrei Cosmin Parnia">
+        <span class="mark" aria-hidden="true">A</span>
+        <span>Andrei Cosmin Parnia</span>
+      </div>
+      <div class="header-actions">
+        <button class="theme-toggle focusable" id="theme-toggle" type="button" role="switch" aria-label="Dark mode" aria-checked="false" title="Switch to dark mode">
+          <svg id="theme-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">Professional profile</p>
+        <h1 id="page-title">Experience,<br>references and work</h1>
+        <p class="lede">CV, recommendation letters and credentials, alongside my long-form storytelling project.</p>
+      </section>
+
+      <section aria-labelledby="resources-title">
+        <div class="section-head">
+          <h2 id="resources-title">Documents and profiles</h2>
+        </div>
+        <div class="resources">
+          <a class="resource focusable" href="CV.pdf" data-pdf-viewer data-pdf-title="Curriculum vitae">
+            <span class="icon-box" aria-hidden="true"><span class="cv-mark">CV</span></span>
+            <span class="resource-copy"><span class="resource-title">Curriculum vitae</span><span class="resource-desc">Experience, education & skills</span></span>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="resource focusable" href="recommendation-morningstar.pdf" data-pdf-viewer data-pdf-title="Morningstar recommendation letter">
+            <span class="icon-box" aria-hidden="true"><img class="document-logo" src="morningstar-logo.png" alt=""></span>
+            <span class="resource-copy"><span class="resource-title">Morningstar</span><span class="resource-desc">Recommendation letter</span></span>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="resource focusable" href="recommendation-deepl.pdf" data-pdf-viewer data-pdf-title="DeepL recommendation letter">
+            <span class="icon-box brand-contrast" aria-hidden="true"><img class="document-logo" src="deepl-logo.png" alt=""></span>
+            <span class="resource-copy"><span class="resource-title">DeepL</span><span class="resource-desc">Recommendation letter</span></span>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="resource focusable" href="https://www.linkedin.com/in/cosmin-parnia/" target="_blank" rel="noopener noreferrer">
+            <span class="icon-box" aria-hidden="true"><svg class="linkedin-mark" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1-.001-4.124 2.062 2.062 0 0 1 .001 4.124zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span>
+            <span class="resource-copy"><span class="resource-title">LinkedIn</span><span class="resource-desc">Connect and see my profile</span></span>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="resource focusable" href="itil-certificate.pdf" data-pdf-viewer data-pdf-title="ITIL certificate">
+            <span class="icon-box" aria-hidden="true"><img class="document-logo" src="itil-logo.png" alt=""></span>
+            <span class="resource-copy"><span class="resource-title">ITIL certificate</span><span class="resource-desc">Professional certification</span></span>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="resource focusable" href="fhnw-enrollment.pdf" data-pdf-viewer data-pdf-title="FHNW enrollment confirmation">
+            <span class="icon-box brand-contrast" aria-hidden="true"><img class="document-logo" src="fhnw-logo.png" alt=""></span>
+            <span class="resource-copy"><span class="resource-title">FHNW enrollment</span><span class="resource-desc">Confirmation of enrollment</span></span>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </section>
+
+      <section class="work" aria-labelledby="work-title">
+        <div>
+          <p class="work-label"></p>
+          <h2 id="work-title"><img class="claere-mark" src="claere-mark.svg" alt="Claere logo"> Claere</h2>
+          <p>A long-form storytelling platform built as a personal project.</p>
+        </div>
+        <a class="work-link focusable" href="https://claere.com" target="_blank" rel="noopener noreferrer">
+          Visit claere.com <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </section>
+    </main>
+
+    <footer>
+      <span>© <span id="year">2026</span> Andrei Cosmin Parnia</span>
+    </footer>
+  </div>
+  <section class="pdf-viewer" id="pdf-viewer" aria-label="PDF viewer" aria-hidden="true" inert>
+    <header class="pdf-toolbar">
+      <button class="pdf-back focusable" id="pdf-back" type="button" aria-label="Back to profile" title="Back to profile">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <span class="pdf-title" id="pdf-title">Document</span>
+    </header>
+    <iframe class="pdf-frame" id="pdf-frame" src="about:blank" title="PDF document"></iframe>
+  </section>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const button = document.getElementById('theme-toggle');
+      const icon = document.getElementById('theme-icon');
+      const themeColor = document.querySelector('meta[name="theme-color"]');
+      const saved = localStorage.getItem('cv-gateway-theme');
+      const initial = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+      function setTheme(theme) {
+        root.dataset.theme = theme;
+        const isDark = theme === 'dark';
+        const label = `Switch to ${isDark ? 'light' : 'dark'} mode`;
+        button.setAttribute('aria-checked', String(isDark));
+        button.title = label;
+        themeColor.content = isDark ? '#161513' : '#f7f4ee';
+        icon.innerHTML = isDark
+          ? '<path d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>'
+          : '<circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>';
+      }
+
+      setTheme(initial);
+      button.addEventListener('click', () => {
+        const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('cv-gateway-theme', next);
+        setTheme(next);
+      });
+
+      const pdfViewer = document.getElementById('pdf-viewer');
+      const pdfFrame = document.getElementById('pdf-frame');
+      const pdfTitle = document.getElementById('pdf-title');
+      const pdfBack = document.getElementById('pdf-back');
+      let returnFocus = null;
+      let closeTimer = 0;
+      let frameHasLoadedPdf = false;
+
+      function showPdfViewer(url, title) {
+        window.clearTimeout(closeTimer);
+        pdfTitle.textContent = title || 'Document';
+        pdfFrame.title = pdfTitle.textContent;
+        frameHasLoadedPdf = false;
+        if (url && pdfFrame.src !== url) pdfFrame.src = url;
+        pdfViewer.inert = false;
+        pdfViewer.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('pdf-open');
+        requestAnimationFrame(() => pdfViewer.classList.add('is-active'));
+        pdfBack.focus();
+      }
+
+      function hidePdfViewer() {
+        if (!pdfViewer.classList.contains('is-active')) return;
+        pdfViewer.classList.remove('is-active');
+        pdfViewer.inert = true;
+        pdfViewer.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('pdf-open');
+        closeTimer = window.setTimeout(() => returnFocus?.focus(), 700);
+      }
+
+      document.querySelectorAll('[data-pdf-viewer]').forEach((link) => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          returnFocus = link;
+          const title = link.dataset.pdfTitle || 'Document';
+          const priorState = history.state && typeof history.state === 'object' ? history.state : {};
+          try {
+            history.pushState({ ...priorState, cvPdfViewer: true, pdfUrl: link.href, pdfTitle: title }, '', location.href);
+          } catch {
+            // Local file viewers may restrict History API writes; the PDF still opens normally.
+          }
+          showPdfViewer(link.href, title);
+        });
+      });
+
+      function closePdfViewer() {
+        if (!pdfViewer.classList.contains('is-active')) return;
+        if (history.state?.cvPdfViewer) history.back();
+        else hidePdfViewer();
+      }
+
+      pdfFrame.addEventListener('load', () => {
+        if (!pdfViewer.classList.contains('is-active')) return;
+        if (!frameHasLoadedPdf) {
+          frameHasLoadedPdf = true;
+          return;
+        }
+        try {
+          if (pdfFrame.contentWindow.location.href === 'about:blank') {
+            frameHasLoadedPdf = false;
+            if (history.state?.cvPdfViewer) history.back();
+            else hidePdfViewer();
+          }
+        } catch {
+          // The built-in PDF viewer is cross-origin; only an about:blank return is inspected.
+        }
+      });
+
+      window.addEventListener('popstate', (event) => {
+        if (event.state?.cvPdfViewer) {
+          showPdfViewer(event.state.pdfUrl, event.state.pdfTitle);
+        } else {
+          hidePdfViewer();
+        }
+      });
+
+      pdfBack.addEventListener('click', closePdfViewer);
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closePdfViewer();
+      });
+    })();
+  </script>
+</body>
+</html>

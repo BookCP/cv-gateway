@@ -441,6 +441,8 @@
       const pdfFrame = document.getElementById('pdf-frame');
       const pdfTitle = document.getElementById('pdf-title');
       const pdfBack = document.getElementById('pdf-back');
+      const isIOS = /iP(hone|ad|od)/.test(navigator.userAgent) ||
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
       let returnFocus = null;
       let closeTimer = 0;
       let frameHasLoadedPdf = false;
@@ -469,6 +471,7 @@
 
       document.querySelectorAll('[data-pdf-viewer]').forEach((link) => {
         link.addEventListener('click', (event) => {
+          if (isIOS) return; // Let iOS Safari open the PDF natively.
           event.preventDefault();
           returnFocus = link;
           const title = link.dataset.pdfTitle || 'Document';
